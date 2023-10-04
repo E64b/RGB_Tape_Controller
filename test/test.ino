@@ -19,7 +19,6 @@ GyverHC595<SHIFTS, HC_PINS> reg (STCP, DS, SHCP);
 
 uint16_t CURRENT_PIN = 0;
 
-
 void setup (){
 	Serial.begin (9600);
 	while (!Serial);
@@ -32,6 +31,8 @@ void setup (){
 	}
 
 void loop (){
+	CURRENT_PIN = 0;
+
 	/*Turn on all the red */
 	for (R; R <= ALL_DATA; R + 3){
 		reg.set (R);
