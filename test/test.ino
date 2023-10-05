@@ -31,16 +31,18 @@ void setup (){
 	}
 
 void loop (){
-	CURRENT_PIN = 0;
-
+	
+	
 	/*Turn on all the red */
+	CURRENT_PIN = 0;
 	for (R; R <= ALL_DATA; R + 3){
 		reg.set (R);
 		delay (500);
 		}
 	reg.clearAll ();
-
+	
 	/*Turn on all the green */
+	CURRENT_PIN = 0;
 	for (G; G <= ALL_DATA; G + 3){
 		reg.set (G);
 		delay (500);
@@ -48,6 +50,7 @@ void loop (){
 	reg.clearAll ();
 
 	/*Turn on all the blue */
+	CURRENT_PIN = 0;
 	for (B; B <= ALL_DATA; B + 3){
 		reg.set (B);
 		delay (500);
@@ -55,7 +58,7 @@ void loop (){
 	reg.clearAll ();
 
 	/*Turn on all the white */
-	for (CURRENT_PIN; CURRENT_PIN <= ALL_DATA; CURRENT_PIN + 3){
+	for (CURRENT_PIN = 0; CURRENT_PIN <= ALL_DATA; CURRENT_PIN + 3){
 		reg.set (R);
 		reg.set (G);
 		reg.set (B);
