@@ -33,12 +33,6 @@ void setup(){
 
 void loop(){
 	/*Turn on all the red */
-	CURRENT_PIN=0;
-	for(CURENT_PIN; CURENT_PIN<=ALL_DATA; CURENT_PIN++){
-		reg.set(CURENT_PIN);
-		reg.update();
-		delay(1000);
-		}
-	reg.clearAll();
+	reg.setAll();
 	reg.update();
 	}
