@@ -12,7 +12,7 @@
 #define ALL_DATA (SHIFTS * ONE_SHIFT_DATA)
 
 typedef struct{
-	char IN_VAL[ALL_DATA]{};
+	uint8_t IN_VAL[ALL_DATA]{};
 	bool send=false;
 	bool recived=false;
 	} UIState;

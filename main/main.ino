@@ -13,7 +13,7 @@ void setup(){
 	delay(5000);
 	reg.clearAll();
 	reg.update();
-	}
+  }
 
 void loop(){	
 	read_serial();
