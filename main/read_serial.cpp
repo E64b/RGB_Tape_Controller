@@ -10,7 +10,6 @@ void read_serial(){
 					uiState.IN_VAL[uiState.i]=false;
 					}
 				if(uiState.i==ALL_DATA-1){
-					Serial.println("recived");
 					uiState.i=0;
 					uiState.recived=true;
 					break;

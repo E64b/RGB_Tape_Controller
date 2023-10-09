@@ -2,14 +2,15 @@
 
 void check(){
 	if(uiState.recived){
-		for(uint16_t a=0; a<ALL_DATA; a++){
-			if(reg.read(a)!=uiState.IN_VAL[a]){
-				reg.write(a, uiState.IN_VAL[a]);
-				Serial.println("check ok");
-				Serial.println(reg.read(a));
+		for(uint16_t i=0; i<ALL_DATA; i++){
+			if(reg.read(i)!=uiState.IN_VAL[i){
+				reg.write(i, uiState.IN_VAL[i]);
 				uiState.send=true;
 				}
 			}
 		uiState.recived=false;
+		for(uint16_t i=0; i<ALL_DATA; i++){
+			uiState.IN_VAL[i]=false;
+			}
 		}
 	}

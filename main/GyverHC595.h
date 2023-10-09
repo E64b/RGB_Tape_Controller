@@ -16,24 +16,21 @@ class GyverHC595{
 	public:
 	GyverHC595(){}
 
-	// конструктор с пином CS
+
 	GyverHC595(int CS){
 		begin(CS);
 		}
 
-	// конструктор с пинами CS, DT, CLK
 	GyverHC595(int CS, int DT, int CLK){
 		begin(CS, DT, CLK);
 		}
 
-	// инициализация для SPI
 	void begin(int CS){
 		if(_MODE) SPI.begin();
 		configurePin(_HC_CS, CS);
 		setPin(_HC_CS, HIGH);
 		}
 
-	// инициализация для bitbang
 	void begin(int CS, int DT, int CLK){
 		begin(CS);
 		if(!_MODE){
@@ -42,47 +39,38 @@ class GyverHC595{
 			}
 		}
 
-	// прочитать состояние пина из буфера
 	bool read(uint16_t num){
 		return (num<(_AMNT<<3))?bitRead(getB(num), num&0b111):0;
 		}
 
-	// записать состояние пина под номером
 	void write(uint16_t num, bool state){
 		state?set(num):clear(num);
 		}
 
-	// включить пин под номером
 	void set(uint16_t num){
 		if(num<(_AMNT<<3)) bitSet(getB(num), num&0b111);
 		}
 
-	// выключить пин под номером
 	void clear(uint16_t num){
 		if(num<(_AMNT<<3)) bitClear(getB(num), num&0b111);
 		}
 
-	// включить все
 	void setAll(){
 		memset(buffer, 0xff, _AMNT);
 		}
 
-	// выключить все
 	void clearAll(){
 		memset(buffer, 0, _AMNT);
 		}
 
-	// записать состояние всех
 	void writeAll(bool state){
 		state?setAll():clearAll();
 		}
 
-	// записать байт данных (можно делать это напрямую с массивом)
 	void writeByte(uint16_t b, uint8_t data){
 		if(b<_AMNT) buffer[b]=data;
 		}
 
-	// обновить состояния пинов
 	void update(){
 		if(_MODE) SPI.beginTransaction(SPISettings(_SPD, MSBFIRST, SPI_MODE0));
 		setPin(_HC_CS, LOW);
@@ -108,12 +96,10 @@ class GyverHC595{
 		if(_MODE) SPI.endTransaction();
 		}
 
-	// количество доступных пинов
 	uint16_t amount(){
 		return (_AMNT<<3);
 		}
 
-	// доступ к буферу
 	uint8_t buffer[_AMNT];
 
 	private:

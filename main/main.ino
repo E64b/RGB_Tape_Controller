@@ -4,7 +4,7 @@ GyverHC595<SHIFTS, HC_PINS> reg(STCP, DS, SHCP);
 UIState uiState;
 
 void setup(){
-	Serial.begin(9600);
+	Serial.begin(115200);
 	while(!Serial);
 	reg.setAll();
 	reg.update();
@@ -12,7 +12,7 @@ void setup(){
 	reg.clearAll();
 	reg.update();
 	reg.writeAll(false);
-	Serial.print("Serial OK");
+	Serial.println("Serial OK");
 	}
 
 void loop(){
