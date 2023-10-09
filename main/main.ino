@@ -1,12 +1,22 @@
 #include "main.h"
 
+GyverHC595<SHIFTS, HC_PINS> reg(STCP, DS, SHCP);
+UIState uiState;
 
 void setup(){
-	void begin(int STCP, int DS, int SHCP);
-	void clearAll();
-}
+	Serial.begin(9600);
+	while(!Serial);
+	Serial.print("Serial OK");
 
-void loop(){
-	read_seral();
+	reg.setAll();
+	reg.update();
+	delay(5000);
+	reg.clearAll();
+	reg.update();
+	}
+
+void loop(){	
+	read_serial();
+	check();
 	send_val();
 }
