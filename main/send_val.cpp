@@ -3,6 +3,7 @@
 void send_val(){
 	if(uiState.send){
 		reg.update();
-		uiState.send = false;
+		uiState.send=false;
+		Serial.println("Send");
 		}
 	}
