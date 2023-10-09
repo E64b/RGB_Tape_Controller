@@ -1,16 +1,21 @@
 #include "main.h"
 
 void read_serial(){
-	uint16_t i=0;
 	while(Serial.available()>0){
-		bool VAL=(bool)Serial.read();
-		uiState.IN_VAL[i]=VAL;
-		Serial.println(VAL);
-		if(i==ALL_DATA){
-			Serial.println("rec");
-			uiState.recived=true;
-			break;
+		char VAL=(char)Serial.read();
+		if(VAL=='1' or VAL=='0'){
+			if(VAL=='1'){
+				uiState.IN_VAL[uiState.i]=true;
+				} else if(VAL=='0'){
+					uiState.IN_VAL[uiState.i]=false;
+					}
+				if(uiState.i==ALL_DATA-1){
+					Serial.println("recived");
+					uiState.i=0;
+					uiState.recived=true;
+					break;
+					}
+				uiState.i++;
 			}
-		i++;
 		}
 	}
