@@ -13,6 +13,7 @@
 
 typedef struct{
 	bool IN_VAL[ALL_DATA]{};
+	bool CURRENT_VAL[ALL_DATA]{};
 	bool send=false;
 	bool recived=false;
 	uint16_t i=0;

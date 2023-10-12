@@ -11,7 +11,11 @@ void setup(){
 	delay(5000);
 	reg.clearAll();
 	reg.update();
-	reg.writeAll(false);
+
+	for(uint16_t i=0; i<ALL_DATA; i++){
+		uiState.CURRENT_VAL[i]=false;
+		}
+
 	Serial.println("Serial OK");
 	}
 
