@@ -10,7 +10,7 @@ void check() {
       }
     }
     uiState.recived = false;
-    for (uint16_t i = 0; i <= ALL_DATA; i++) {
+    for (uint16_t i = 0; i < ALL_DATA; i++) {
       uiState.IN_VAL[i] = false;
     }
   }

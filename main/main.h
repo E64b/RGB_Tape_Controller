@@ -8,7 +8,7 @@
 #define DS 11   // pinDT 14
 #define SHCP 13 // pinCLK 11
 
-#define SHIFTS 1 // Number of chips
+#define SHIFTS 6 // Number of chips
 #define HC595_DELAY 0
 #define ONE_SHIFT_DATA 8
 #define ALL_DATA (SHIFTS * ONE_SHIFT_DATA)
@@ -24,6 +24,6 @@ typedef struct {
 extern GyverHC595<SHIFTS, HC_PINS> reg;
 extern UIState uiState;
 
-void check();
 void read_serial();
+void check();
 void send_val();

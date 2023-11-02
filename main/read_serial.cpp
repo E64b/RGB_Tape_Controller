@@ -11,7 +11,8 @@ void read_serial() {
     if (VAL == '1') {
       uiState.IN_VAL[uiState.i] = true;
       uiState.i++;
-    } else if (VAL == '0') {
+    }
+    if (VAL == '0') {
       uiState.IN_VAL[uiState.i] = false;
       uiState.i++;
     }
