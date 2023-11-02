@@ -3,7 +3,7 @@
 void read_serial() {
   while (Serial.available() > 0) {
     char VAL = (char)Serial.read();
-    if (uiState.i == (ALL_DATA - 1)) {
+    if (uiState.i == (ALL_DATA)) {
       uiState.i = 0;
       uiState.recived = true;
       break;
