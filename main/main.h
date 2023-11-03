@@ -7,10 +7,10 @@
 #define STCP 10 // pinCS 12
 #define DS 11   // pinDT 14
 #define SHCP 13 // pinCLK 11
-#define DEBUG 0 // debug mode, 1 or 0
+#define DEBUG 1 // debug mode, 1 or 0
 
-#define SHIFTS 6 // Number of chips
-#define HC595_DELAY 50
+#define SHIFTS 1 // Number of chips
+#define HC595_DELAY 0
 #define ONE_SHIFT_DATA 8
 #define ALL_DATA (SHIFTS * ONE_SHIFT_DATA)
 
@@ -19,6 +19,7 @@ typedef struct {
   bool CURRENT_VAL[ALL_DATA]{};
   bool send = false;
   bool recived = false;
+  bool wait = true;
   uint16_t i = 0;
 } UIState;
 
